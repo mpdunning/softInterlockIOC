@@ -1,0 +1,27 @@
+record(calcout, "$(P):$(N):INT") {
+  field(DESC, "")
+  field(INPA, "$(INP) CP")
+  field(INPB, "$(LOLIM)")
+  field(INPC, "$(HILIM)")
+  field(CALC, "(A#0)&&((A<=B)||(A>=C))?1:0")
+  field(OUT,  "$(OUT) PP")
+  field(OOPT, "When Non-zero")
+  field(SDIS, "$(P):$(N):ENABLE")
+  field(DISV, "0")
+  field(FLNK, "$(P):$(N):STATUS")
+}
+
+record(bo, "$(P):$(N):ENABLE") {
+  field(DESC, "")
+  field(ZNAM, "Disable")
+  field(ONAM, "Enable")
+}
+
+record(bi, "$(P):$(N):STATUS") {
+  field(DESC, "")
+  field(INP,  "$(P):$(N):INT")
+  field(ZNAM, "OK")
+  field(ONAM, "FAULT")
+  field(ZSV,  "NO_ALARM")
+  field(OSV,  "MAJOR")
+}
